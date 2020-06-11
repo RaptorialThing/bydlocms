@@ -3,9 +3,11 @@
  * Created by PhpStorm.
  * User: rg
  * Date: 11.06.20
- * Time: 20:15
+ * Time: 20:51
  */
+namespace bydlocode\Models\Articles;
 
-require __DIR__ . '/../vendor/autoload.php';
+class Article
+{
 
-echo 1;
+}
