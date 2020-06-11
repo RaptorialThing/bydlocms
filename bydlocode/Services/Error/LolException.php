@@ -6,7 +6,7 @@
  * Time: 20:54
  */
 
-namespace bydlocode\Services\Excepions;
+namespace Bydlocode\Services\Error;
 
 class LolException extends \Exception
 {
