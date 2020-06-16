@@ -8,5 +8,4 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$l = new \Bydlocode\Models\Articles\Article("test");
-echo $l::getName();
+\Bydlocode\Services\Db\Db::getInstance();
