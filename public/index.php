@@ -9,9 +9,33 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 try {
-    $alex = new \Bydlocode\Models\Users\User('Alex','vendor','alex@postmate.com');
 
-    $alex->create();
+    $controller = new \Bydlocode\Controllers\MainController();
+
+    $route = $_GET['route'] ?? '';
+    $routes = require __DIR__ . '/../bydlocode/routes.php';
+
+    $isRouteFind = false;
+    foreach ($routes as $pattern => $controllerAndAction) {
+        preg_match($pattern,$route,$matches);
+        if (!empty($matches)) {
+            $isRouteFind = true;
+            break;
+        }
+    }
+
+    if (!$isRouteFind) {
+        echo 'Страница не найдена';
+        return;
+    }
+
+    unset($matches[0]);
+
+    $controllerName = $controllerAndAction[0];
+    $actionName = $controllerAndAction[1];
+
+    $controller = new $controllerName();
+    $controller->$actionName(...$matches);
 
 } catch (DbException $e) {
     print('Error db connect '.$e->getMessage());
