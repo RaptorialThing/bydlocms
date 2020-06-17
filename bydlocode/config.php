@@ -6,9 +6,12 @@
  * Time: 20:10
  */
 
-$config = [
+return [
   'db' => [
-      'name'=> '',
-      'password' => '',
+      'host'=> '127.0.0.1',
+      'name'=> 'bydlocms',
+      'charset' => 'utf8mb4',
+      'user' =>'root',
+      'pass' => 'root',
   ],
 ];

@@ -13,6 +13,8 @@ class Item extends ActiveRecord
 {
 public static $name;
 
+public static $table = 'items';
+
 static function getName()  {
     return self::getByName("name");
 }

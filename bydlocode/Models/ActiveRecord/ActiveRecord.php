@@ -9,6 +9,8 @@
 namespace Bydlocode\Models\ActiveRecord;
 
 
+use Bydlocode\Services\Db\Db;
+
 class ActiveRecord
 {
     public $id;
@@ -28,5 +30,10 @@ class ActiveRecord
 
     public static function __callstatic($name,$args) {
         return static::$propsArr[$name];
+    }
+
+    public function create() {
+        $db = Db::getInstance();
+        $db->create(static::$instance);
     }
 }

@@ -8,4 +8,13 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-\Bydlocode\Services\Db\Db::getInstance();
+try {
+    $alex = new \Bydlocode\Models\Users\User('Alex','vendor','alex@postmate.com');
+
+    $alex->create();
+
+} catch (DbException $e) {
+    print('Error db connect '.$e->getMessage());
+} catch (Exception $e) {
+    print('Error '.$e->getMessage());
+}
